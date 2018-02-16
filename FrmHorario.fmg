@@ -1,0 +1,60 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 188 , 299 WIDTH 902 HEIGHT 518
+
+     DEFINE COMBOBOX cmbDia
+            ROW    30
+            COL    20
+            WIDTH  192
+            HEIGHT 100
+            ITEMS cDia()
+            VALUE 1
+     END COMBOBOX
+
+     DEFINE COMBOBOX cmbTipo1
+            ROW    70
+            COL    110
+            WIDTH  100
+            HEIGHT 100
+            ITEMS {""}
+            value ( cAliasTipo1 )->cCodTab
+            ITEMSOURCE ( cAliasTipo1 + "->cDesTAB" )
+            VALUESOURCE ( cAliasTipo1 + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_1
+            ROW    70
+            COL    20
+            WIDTH  87
+            HEIGHT 25
+            VALUE "Tipo"
+     END LABEL
+
+     DEFINE COMBOBOX CmbTipo2
+            ROW    100
+            COL    110
+            WIDTH  100
+            HEIGHT 100
+            ITEMS {""}
+            value ( cAliasTipo2 )->cCodTab
+            ITEMSOURCE ( cAliasTipo2 + "->cDesTAB" )
+            VALUESOURCE ( cAliasTipo2 + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE GRID Grid_1
+            ROW    40
+            COL    300
+            WIDTH  528
+            HEIGHT 421
+            ITEMS {{'',''}}
+            WIDTHS {60,60}
+            HEADERS {'Column1','Column2'}
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            INPLACEEDIT ''
+     END GRID
+
+END WINDOW
+
+

@@ -1,0 +1,158 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 191 , 313 WIDTH 550 HEIGHT 350 TITLE "Movimiento Docente"
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION SaveMov( nOp, cAliasMov ) TOOLTIP "Nuevo"
+            BUTTON Btn_0 PICTURE "EXIT" ACTION ThisWindow.Release TOOLTIP "Terminar" SEPARATOR
+     END TOOLBAR
+
+     DEFINE LABEL Label_1
+            ROW    40
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Cupof"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX cCupof
+            ROW    40
+            COL    160
+            WIDTH  100
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+     END TEXTBOX
+
+     DEFINE BUTTON Button_1
+            ROW    40
+            COL    270
+            WIDTH  100
+            HEIGHT 24
+            ACTION MovBuscar( cAliasMOV, cAliasCupof, cAliasDOC1)
+            CAPTION 'Buscar'
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON
+
+     DEFINE LABEL Label_2
+            ROW    70
+            COL    20
+            WIDTH  150
+            HEIGHT 24
+            VALUE "Materia"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX cMateria
+            ROW    70
+            COL    160
+            WIDTH  329
+            HEIGHT 26
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+     END TEXTBOX
+
+     DEFINE LABEL Label_3
+            ROW    100
+            COL    20
+            WIDTH  150
+            HEIGHT 24
+            VALUE "Docente A Reemplazar"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cDocTit
+            ROW    100
+            COL    160
+            WIDTH  300
+            HEIGHT 100
+            ITEMS {""}
+            VALUE "99999999"
+            ITEMSOURCE ( cAliasDOC1 + "->cApeNom" )
+            VALUESOURCE ( cAliasDOC1 + "->cDNI" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_4
+            ROW    130
+            COL    20
+            WIDTH  150
+            HEIGHT 24
+            VALUE "Docente de Alta"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cDocAlta
+            ROW    130
+            COL    160
+            WIDTH  300
+            HEIGHT 100
+            ITEMS {""}
+            VALUE "99999999"
+            ITEMSOURCE ( cAliasDOC2 + "->cApeNom" )
+            VALUESOURCE ( cAliasDOC2 + "->cDNI" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_5
+            ROW    160
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Situacion Revista"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cSitRev
+            ROW    160
+            COL    160
+            WIDTH  200
+            HEIGHT 100
+            ITEMS {""}
+            VALUE ( cAliasSRevista + "->cCodTAB" )
+            ITEMSOURCE ( cAliasSRevista + "->cDesTAB" )
+            VALUESOURCE ( cAliasSRevista + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_6
+            ROW    190
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Fecha Alta"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE DATEPICKER dFecAlta
+            ROW    190
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+            VALUE date()
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END DATEPICKER
+
+     DEFINE LABEL Label_7
+            ROW    220
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Fecha Cese"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE DATEPICKER dFecCese
+            ROW    220
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+            VALUE ctod("  /  /    ")
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END DATEPICKER
+
+END WINDOW
+
+

@@ -1,0 +1,29 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 164 , 413 WIDTH 410 HEIGHT 518 TITLE "Clientes"
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION ABM_CLI( 1, cAliasTAB, cAliasCLI ) TOOLTIP "Nuevo"
+            BUTTON Btn_2 PICTURE "DEL" ACTION BorrarCLI( cAliasCLI ) TOOLTIP "Borrar"
+            BUTTON Btn_3 PICTURE "EDIT" ACTION ABM_CLI( 3, cAliasTAB, cAliasCLI ) TOOLTIP "Editar"
+            BUTTON Btn_4 PICTURE "VIEW" ACTION ABM_CLI( 4, cAliasTAB, cAliasCLI ) TOOLTIP "Consultar" SEPARATOR
+            BUTTON Btn_5 PICTURE "RPT" ACTION RptCLI( cAliasCLI ) TOOLTIP "Imprimir" SEPARATOR
+            BUTTON Btn_6 PICTURE "REFRESH" ACTION Refresh( cAliasCLI ) TOOLTIP "Refrescar" SEPARATOR
+            BUTTON Btn_0 PICTURE "EXIT" ACTION ThisWindow.Release TOOLTIP "Terminar" SEPARATOR
+     END TOOLBAR
+
+     DEFINE BROWSE Browse_1
+            ROW    40
+            COL    10
+            WIDTH  370
+            HEIGHT 347
+            WIDTHS {55, 280 }
+            HEADERS {"Codigo", "Cliente" }
+            WORKAREA &( cAliasCLI )
+            FIELDS {'cCodCLI', "cNomCLI" }
+     END BROWSE  
+
+END WINDOW
+
+

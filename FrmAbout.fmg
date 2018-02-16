@@ -1,0 +1,99 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 245 , 386 WIDTH 367 HEIGHT 325 TITLE "Acerca de ..."
+
+     DEFINE IMAGE Image_1
+            ROW    10
+            COL    10
+            WIDTH  52
+            HEIGHT 53
+            PICTURE "B_CLI"
+     END IMAGE
+
+     DEFINE LABEL Label_1
+            ROW    10
+            COL    80
+            WIDTH  270
+            HEIGHT 24
+            VALUE "Label_1"
+            FONTBOLD .T.
+            CENTERALIGN .T.
+     END LABEL
+
+     DEFINE LABEL Label_2
+            ROW    40
+            COL    80
+            WIDTH  270
+            HEIGHT 24
+            VALUE "Label_2"
+            FONTBOLD .T.
+            CENTERALIGN .T.
+     END LABEL
+
+     DEFINE LABEL Label_3
+            ROW    90
+            COL    10
+            WIDTH  340
+            HEIGHT 24
+            VALUE "Label_3"
+     END LABEL
+
+     DEFINE LABEL Label_4
+            ROW    120
+            COL    10
+            WIDTH  340
+            HEIGHT 24
+            VALUE "Label_4"
+     END LABEL
+
+     DEFINE LABEL Label_5
+            ROW    150
+            COL    10
+            WIDTH  340
+            HEIGHT 24
+            VALUE "Label_5"
+     END LABEL
+
+     DEFINE FRAME Frame_2
+            ROW    180
+            COL    10
+            WIDTH  342
+            HEIGHT 6
+            FONTNAME 'Arial'
+            OPAQUE .T.
+     END FRAME
+
+     DEFINE LABEL Label_6
+            ROW    190
+            COL    10
+            WIDTH  340
+            HEIGHT 24
+            VALUE "Soporte Tecnico"
+            FONTBOLD .T.
+            CENTERALIGN .T.
+     END LABEL
+
+     DEFINE HYPERLINK HyperLink_1
+            ROW    220
+            COL    10
+            WIDTH  242
+            HEIGHT 21
+            VALUE "HerculeSoft@gmail.com"
+//            ADDRESS "HerculeSoft@gmail.com?&subject= Soporte Tecnico"
+            ADDRESS "http://www.herculesoft.99h.com.ar/Factura.exe"
+     END HYPERLINK
+
+     DEFINE BUTTON Button_1
+            ROW    250
+            COL    110
+            WIDTH  100
+            HEIGHT 28
+            ACTION ThisWindow.Release
+            CAPTION "Aceptar"
+            FONTNAME 'Arial'
+     END BUTTON
+
+END WINDOW
+
+

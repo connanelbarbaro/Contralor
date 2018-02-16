@@ -1,0 +1,155 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 166 , 45 WIDTH 1029 HEIGHT 607 TITLE "Ausentes sin Justificar"
+
+     DEFINE BROWSE Browse_1
+            ROW    40
+            COL    10
+            WIDTH  542
+            HEIGHT 438
+            WIDTHS {81, 270, 90, 90}
+            HEADERS {"Dni", "Docente", "Fecha", "Justifico" }
+            WORKAREA &( cAliasAus )
+            FIELDS {'cDNI', "( cAliasDOc1 )->cApeNom", "dfecha","lEstado"}
+            FONTSIZE 10
+            ONGOTFOCUS This.BackColor:=clrBack
+            ONLOSTFOCUS This.BackColor:=clrNormal
+            FONTBOLD .T.
+            JUSTIFY { _C, _I, _C, _C }
+            COLUMNCONTROLS {NIL, NIL, NIL, {'CHECKBOX','Yes','No'}}
+            CHECKBOXES  .T.
+     END BROWSE
+
+     DEFINE LABEL Label_1
+            ROW    40
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Docente"
+     END LABEL
+
+     DEFINE COMBOBOX cbxDoc
+            ROW    40
+            COL    700
+            WIDTH  195
+            HEIGHT 100
+            ITEMS {""}
+            VALUE "99999999"
+            DISPLAYEDIT .T.
+            ITEMSOURCE (cAliasDOc2 +'->cApeNom' )
+            VALUESOURCE ( cAliasDOC2 + "->cDNI" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_2
+            ROW    70
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Fecha Desde"
+     END LABEL
+
+      DEFINE DATEPICKER dFecha1
+            ROW    70
+            COL    700
+            WIDTH  120
+            HEIGHT 24
+            VALUE CTOD('')
+            FONTNAME 'Arial'
+            TOOLTIP ''
+           ONCHANGE LicFecha()
+     END DATEPICKER
+
+
+     DEFINE LABEL Label_3
+            ROW    100
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Dias"
+     END LABEL
+
+     DEFINE SPINNER nDias
+            ROW    100
+            COL    700
+            WIDTH  120
+            HEIGHT 24
+            RANGEMIN 1
+            RANGEMAX 1000
+            VALUE 1
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE LicFecha()
+            WRAP .T.
+     END SPINNER
+
+     DEFINE LABEL Label_4
+            ROW    130
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Fechas Hasta"
+     END LABEL
+
+     DEFINE TEXTBOX dFecha2
+            ROW    130
+            COL    700
+            WIDTH  120
+            HEIGHT 24
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            INPUTMASK ''
+            FORMAT ''
+            VALUE ''
+            DATE  .T.
+     END TEXTBOX
+
+     DEFINE LABEL Label_5
+            ROW    160
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Articulo"
+     END LABEL
+
+     DEFINE COMBOBOX cbxArt
+            ROW    160
+            COL    700
+            WIDTH  200
+            HEIGHT 100
+            ITEMS aArt
+            VALUE 9999
+            ONCHANGE LicFiltro( cAliasLic )
+     END COMBOBOX
+
+     DEFINE LABEL Label_6
+            ROW    190
+            COL    570
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Inciso"
+     END LABEL
+
+     DEFINE COMBOBOX cbxInc
+            ROW    190
+            COL    700
+            WIDTH  300
+            HEIGHT 100
+            ITEMS aInc
+            VALUE 9999
+     END COMBOBOX
+
+     DEFINE BUTTON Button_Ok
+            ROW    350
+            COL    570
+            WIDTH  400
+            HEIGHT 29
+            ACTION LicGrabar( cAliasAUS, cAliasLic2 )
+            CAPTION "Agregar Licencia"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON
+
+END WINDOW
+
+

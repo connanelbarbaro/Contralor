@@ -1,0 +1,106 @@
+*-- PROGRAM FILE -------------------------------------------------------
+*         Description :
+*           File Name : Informes.prg
+*              Author : Carvalho Alejandro - HerculeSoft (c) 2012
+*   Date Time Created : 02/11/2018 - 10:20
+* Date Time updated :>: 02/12/2018 18:19
+*             Comment :
+*   History Update :>>:
+*   02/11/18-02/12/18
+*-----------------------------------------------------------------------
+Function RptDocDNI()
+
+     Local nLin := 999
+     Local oPrint
+     Local aPos := { 1, 10 }
+     Local cTit := "Listado de Docente"
+     Local aHead := { { "", "   DNI" }, { "", "DOCente" } }
+     Local cEmpresa := Empresa()
+     Local lLandscape := .F. // impresion horizontal llanscape=.F. impresion Vertical
+     Local nDatos := 0, nPag := 0
+     Local cAliasDOC
+
+     cAliasDOC := AbrirDBF( "DOCENTES", "DOCnom" )
+     ( cAliasDOC )->( dbeval( { || nDatos+= 1 } ) )
+     if nDatos > 0
+          IF IniPrint( @oPrint, lLandscape  )
+               ( cAliasDOC )->( dbgotop() )
+               do while !( cAliasDOC )->( eof() )
+                    HeadRpt( oPrint, @nLin, cTit, aHead, aPos, lLandscape, @nDatos, @nPag )
+                         oPrint:printdata( nLin, aPos[ 1 ], ( cAliasDOC )->cdni,"Courier New", 12 )
+                         oPrint:printdata( nLin, aPos[ 2 ], (cAliasDOC )->capenom,"Courier New", 12 )
+                         ( cAliasDOC )->( dbskip() )
+               enddo
+               FooterRpt( oPrint, lLandscape, nDatos, @nPag )
+               oPrint:enddoc()
+               oPrint:RELEASE()
+          endif
+     endif
+     return nil
+//----------------------------------------------------------------------------------------------------------------------------------
+Function RptNoti()
+// NOTIFICACION TODOS
+
+     Local nLin := 999
+     Local oPrint
+     Local aPos := { 0, 33, 41, 60 }
+     Local cTit := "Notificacion "
+     Local aHead := { { "", "Docente" }, { "", "DNI" }, { "", "Firma" }, { "", "Fecha" } }
+     Local cEmpresa := Empresa()
+     Local lLandscape := .F. // impresion horizontal llanscape=.T. impresion Vertical
+     Local nDatos := 0, nPag := 0
+     Local cAliasDOC
+
+     cAliasDOC := AbrirDBF( "DOCENTES", "DOCnom" )
+     ( cAliasDOC )->( dbeval( { || nDatos+= 1 } ) )
+     if nDatos > 0
+          IF IniPrint( @oPrint, lLandscape  )
+               ( cAliasDOC )->( dbgotop() )
+               do while !( cAliasDOC )->( eof() )
+                    HeadRpt( oPrint, @nLin, cTit, aHead, aPos, lLandscape, @nDatos, @nPag )
+                         oPrint:printdata( nLin, aPos[ 1 ], (cAliasDOC )->capenom + " "+(cAliasDOC )->cDni  ,"Courier New", 12 )
+                         oprint:printline( nLin+1,aPos[ 3 ],nLin+1, aPos[ 3 ]+10 )
+                         oprint:printline( nLin+1,aPos[ 4 ],nLin+1, aPos[ 4 ]+10 )
+                         ( cAliasDOC )->( dbskip() )
+               enddo
+               oPrint:endpage()
+               oPrint:enddoc()
+               oPrint:RELEASE()
+          endif
+     endif
+     return nil
+
+//----------------------------------------------------------------------------------------------------------------------------------
+Function RptNotiT()
+// NOTIFICACION SOLO PERSONAL TITULAR
+
+     Local nLin := 999
+     Local oPrint
+     Local aPos := { 0, 33, 41, 60 }
+     Local cTit := "Notificacion "
+     Local aHead := { { "", "Docente" }, { "", "DNI" }, { "", "Firma" }, { "", "Fecha" } }
+     Local cEmpresa := Empresa()
+     Local lLandscape := .F. // impresion horizontal llanscape=.T. impresion Vertical
+     Local nDatos := 0, nPag := 0
+     Local cAliasDOC
+
+     cAliasDOC := AbrirDBF( "DOCENTES", "DOCnom" )
+     ( cAliasDOC )->( dbeval( { || nDatos+= 1 } ) )
+     if nDatos > 0
+          IF IniPrint( @oPrint, lLandscape  )
+               ( cAliasDOC )->( dbgotop() )
+               do while !( cAliasDOC )->( eof() )
+                    HeadRpt( oPrint, @nLin, cTit, aHead, aPos, lLandscape, @nDatos, @nPag )
+                         oPrint:printdata( nLin, aPos[ 1 ], (cAliasDOC )->capenom + " "+(cAliasDOC )->cDni  ,"Courier New", 12 )
+                         oprint:printline( nLin+1,aPos[ 3 ],nLin+1, aPos[ 3 ]+10 )
+                         oprint:printline( nLin+1,aPos[ 4 ],nLin+1, aPos[ 4 ]+10 )
+                         ( cAliasDOC )->( dbskip() )
+               enddo
+               oPrint:endpage()
+               oPrint:enddoc()
+               oPrint:RELEASE()
+          endif
+     endif
+     return nil
+
+

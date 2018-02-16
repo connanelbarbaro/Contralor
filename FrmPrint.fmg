@@ -1,0 +1,84 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 359 , 523 WIDTH 301 HEIGHT 206
+
+     DEFINE BUTTON Button_1
+            ROW    10
+            COL    10
+            WIDTH  100
+            HEIGHT 28
+            ACTION Eval( bDOC )
+            CAPTION "Generar Word"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_2
+            ROW    50
+            COL    10
+            WIDTH  100
+            HEIGHT 28
+            Eval( bTXT )	
+            CAPTION "Generar TXT"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_3
+            ROW    90
+            COL    10
+            WIDTH  100
+            HEIGHT 28
+	    ACTION Eval( bHTML )
+            CAPTION "Generar HTML"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_4
+            ROW    10
+            COL    180
+            WIDTH  100
+            HEIGHT 28
+	    ACTION Eval( bPreview )
+            CAPTION "Vista Previa"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_5
+            ROW    50
+            COL    180
+            WIDTH  100
+            HEIGHT 28
+	    ACTION Eval( bXLS )
+            CAPTION "Generar Excel"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_6
+            ROW    90
+            COL    180
+            WIDTH  100
+            HEIGHT 28
+	    ACTION Eval( bPDF )
+            CAPTION "Generar PDF"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+     DEFINE BUTTON Button_7
+            ROW    130
+            COL    10
+            WIDTH  271
+            HEIGHT 29
+            CAPTION "Imprimir"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON  
+
+END WINDOW
+
+

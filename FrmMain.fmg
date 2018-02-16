@@ -1,0 +1,118 @@
+
+* Harbour Minigui IDE HMI+ form generated code
+* (c)2004 Ciro Vargas Clemow   sistemascvc@softhome.net
+
+DEFINE WINDOW  TEMPLATE ;
+     AT 0,0 ;
+     OBJ oWnd ;
+     WIDTH getDesktopWidth() ;
+     HEIGHT getDesktopHeight()- 10 ;
+     TITLE 'Impresion de Facturas' ;
+     ICON 'AAA' ;
+     MDI ;
+     BACKCOLOR {176 , 183 , 198 } ;
+     FONT 'Arial' ;
+     SIZE 10
+
+     DEFINE MAIN MENU
+          POPUP '&Archivo'
+               ITEM '&Docentes' ACTION DOCentes()
+               SEPARATOR
+               ITEM '&Cupof' ACTION Cupof()
+               SEPARATOR
+               ITEM 'ABM &Tablas Generales' ACTION Tablas()
+               SEPARATOR
+               ITEM '&Salir' ACTION ThisWindow.release
+          END POPUP
+          POPUP '&Movimiento'
+               ITEM 'Movimiento Docente' ACTION Movimiento()
+          END POPUP
+          POPUP 'Informes'
+               ITEM 'Personal con DNI' ACTION RptDocDNI()
+               ITEM 'Notificacion Personal ( TODOS )' ACTION RptNoti()
+               ITEM 'Notificacion Personal ( TITULAR )' ACTION EnDesarrollo()
+               ITEM 'Suplentes del Personal' ACTION EnDesarrollo()
+               SEPARATOR
+               ITEM 'Asistencia Individual Docente' ACTION EnDesarrollo()
+               ITEM 'Inasistencia sin Justificar Docente' ACTION EnDesarrollo()
+               SEPARATOR
+               ITEM 'Asistencia Docente x Dia' ACTION RptDocxDia()
+          END POPUP
+          POPUP '&Herramientas'
+               ITEM "Configuracion" ACTION cfg()
+               ITEM '&Chequeo Sistema' ACTION MsgMeter ( "Chekeando Sistema","Aviso Del Sistema", { | oMeter, oLblMen | CreateDBF( oMeter, oLblMen ) } )
+               ITEM '&Ordenar archivos' ACTION MsgMeter ( "Ordenando","Aviso Del Sistema", { | oMeter, oLblMen | Ordenar( oMeter, oLblMen ) } )
+          END POPUP
+          POPUP 'A&yuda'
+               ITEM '&Acerca de...' ACTION About()
+          END POPUP
+
+     END MENU
+
+     DEFINE TOOLBAR TbarMain BUTTONSIZE 100, 20 FONT "Arial" SIZE 9 RIGHTTEXT
+     BUTTON BtnExit ;
+          PICTURE "EXIT" ;
+          CAPTION "Salir" ;
+          ACTION ThisWindow.Release ;
+          TOOLTIP "Salir"
+
+     BUTTON BtnCLI  ;
+          PICTURE "B_CLI" ;
+          CAPTION "Docentes" ;
+          ACTION Docentes() ;
+          TOOLTIP "Actualizar Docentes"
+
+     BUTTON BtnCupof  ;
+          PICTURE "EDIT" ;
+          CAPTION "Cupof" ;
+          ACTION Cupof() ;
+          TOOLTIP "Actualizar Cupof"
+
+     BUTTON BtnTAB ;
+          PICTURE "EDIT";
+          CAPTION "Tablas" ;
+          ACTION Tablas() ;
+          TOOLTIP "Actualizar o Consultar Tablas"
+
+     BUTTON BtnFAC ;
+          PICTURE "B_FAC" ;
+          CAPTION "Ausencia" ;
+          ACTION Ausencia() ;
+          TOOLTIP "Crear e Imprimir Facturas"
+
+     BUTTON BtnLIC ;
+          PICTURE "B_FAC" ;
+          CAPTION "Licencias" ;
+          ACTION Licencias() ;
+          TOOLTIP "Crear e Imprimir Facturas"
+
+     BUTTON main_calc ;
+          CAPTION 'Calculadora' ;
+          TOOLTIP 'Calculadora' ;
+          PICTURE "B_CALC" ;
+          ACTION shellexecute(0,'open','calc.exe') ;
+
+     BUTTON main_excel ;
+          CAPTION 'Excel' ;
+          TOOLTIP 'Excel' ;
+          PICTURE 'B_EXCEL' ;
+          ACTION shellexecute(0,'open','excel.exe',,,1) ;
+
+     BUTTON main_excel ;
+          CAPTION 'Excel' ;
+          TOOLTIP 'Excel' ;
+          PICTURE 'B_EXCEL' ;
+          ACTION Prueba() ;
+
+
+
+     END TOOLBAR
+     DEFINE STATUSBAR
+          STATUSITEM "HerculeSoft (c) 2012 - HerculeSoft@gmail.com " ACTION About()
+          STATUSITEM "" WIDTH 30 ACTION EnDesarrollo() ICON "i_HELP" TOOLTIP "Soporte Tecnico"
+          KEYBOARD
+          DATE
+          CLOCK
+     END STATUSBAR
+END WINDOW
+

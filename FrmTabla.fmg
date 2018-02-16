@@ -1,0 +1,51 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 178 , 374 WIDTH 497 HEIGHT 513 TITLE "Tablas" ICON "I_TABLA"
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION Eval( bNew ) TOOLTIP "Nuevo"
+            BUTTON Btn_2 PICTURE "DEL" ACTION Eval( bDel ) TOOLTIP "Borrar"
+            BUTTON Btn_3 PICTURE "EDIT" ACTION Eval( bEdit ) TOOLTIP "Editar"
+            BUTTON Btn_4 PICTURE "VIEW" ACTION Eval( bView ) TOOLTIP "Consultar" SEPARATOR
+            BUTTON Btn_5 PICTURE "RPT" ACTION Eval( bRpt ) TOOLTIP "Imprimir" SEPARATOR
+            BUTTON Btn_6 PICTURE "REFRESH" ACTION Eval( bRefresh ) TOOLTIP "Refrescar" SEPARATOR
+            BUTTON Btn_0 PICTURE "EXIT" ACTION Eval( bExit ) TOOLTIP "Terminar" SEPARATOR
+     END TOOLBAR
+
+     DEFINE COMBOBOX cmbTabla
+            ROW    30
+            COL    10
+            WIDTH  332
+            HEIGHT 100
+            ITEMS aTabla
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE TabRefresh( cAliasTAB )
+     END COMBOBOX
+
+     DEFINE BROWSE Browse_1
+            ROW    70
+            COL    10
+            WIDTH  360
+            HEIGHT 347
+            WIDTHS { 60, 280 }
+            HEADERS {"Codigo", "Descripcion" }
+            WORKAREA &( cAliasTAB )
+            FIELDS { "cCodTAB", "cDesTAB" }
+     END BROWSE
+
+     DEFINE BROWSE Browse_2
+            ROW    70
+            COL    10
+            WIDTH  360
+            HEIGHT 347
+            WIDTHS { 45, 45, 270 }
+            HEADERS {"Art", "Inc", "Descripcion" }
+            WORKAREA &( cAliasTAB )
+            FIELDS { "cCodTAB", "cIncTAB", "cDesTAB" }
+     END BROWSE
+
+END WINDOW
+
+

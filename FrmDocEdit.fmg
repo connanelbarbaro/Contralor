@@ -1,0 +1,404 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 15 , 219 WIDTH 715 HEIGHT 544 TITLE "ACTUALIZAR CLIENTES"
+
+  DEFINE TAB Tab_1 AT 10,10 WIDTH 680 HEIGHT 456 VALUE 1 FONT "Arial" SIZE 9 TOOLTIP .F. ON CHANGE .F.
+
+    PAGE 'Datos Generales'
+
+        DEFINE LABEL Label_1
+               ROW    40
+               COL    20
+               WIDTH  131
+               HEIGHT 25
+               VALUE "Tipo y Nø Documento"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbTDoc
+               ROW    40
+               COL    160
+               WIDTH  80
+               HEIGHT 100
+               ITEMS {""}
+               VALUE 9999
+               ITEMSOURCE ( cAliasDNI + "->cDesTAB" )
+               VALUESOURCE ( cAliasDNI + "->cCodTAB" )
+        END COMBOBOX
+
+        DEFINE TEXTBOX TxtDni
+               ROW    40
+               COL    260
+               WIDTH  100
+               HEIGHT 24
+               RIGHTALIGN .T.
+        END TEXTBOX
+
+        DEFINE LABEL Label_2
+               ROW    70
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Apellido y Nombre"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtApeNom
+               ROW    70
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END TEXTBOX
+
+        DEFINE LABEL Label_3
+               ROW    100
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Domicilio"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtDir
+               ROW    100
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END TEXTBOX
+
+        DEFINE LABEL Label_4
+               ROW    130
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Localidad"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbCP
+               ROW    130
+               COL    160
+               WIDTH  200
+               HEIGHT 100
+               ITEMS {""}
+               VALUE 9999
+               ITEMSOURCE ( cAliasCP+ "->cDesTAB" )
+               VALUESOURCE ( cAliasCP + "->cCodTAB" )
+        END COMBOBOX
+
+        DEFINE LABEL Label_5
+               ROW    160
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Telefono"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtTel
+               ROW    160
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+               MAXLENGTH 20
+               INPUTMASK "9999999999999999"
+        END TEXTBOX
+
+        DEFINE LABEL Label_6
+               ROW    190
+               COL    20
+               WIDTH  200
+               HEIGHT 24
+               VALUE "Celular"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtCel
+               ROW    190
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+               MAXLENGTH 20
+               INPUTMASK "9999999999999999"
+        END TEXTBOX
+
+        DEFINE LABEL Label_7
+               ROW    220
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Email"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtEmail
+               ROW    220
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END TEXTBOX
+
+        DEFINE LABEL Label_8
+               ROW    250
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "CUIT"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtcuit
+               ROW    250
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END TEXTBOX
+
+        DEFINE LABEL Label_9
+               ROW    280
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Estado Civil"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbEcivil
+               ROW    280
+               COL    160
+               WIDTH  200
+               HEIGHT 100
+               ITEMS {""}
+               VALUE 9999
+               ITEMSOURCE ( cAliasEcivil + "->cDesTAB" )
+               VALUESOURCE ( cAliasEcivil + "->cCodTAB" )
+        END COMBOBOX
+
+        DEFINE LABEL Label_10
+               ROW    310
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Hijos"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE TEXTBOX txtHijos
+               ROW    310
+               COL    160
+               WIDTH  200
+               HEIGHT 24
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+               NUMERIC  .T.
+        END TEXTBOX
+
+        DEFINE LABEL Label_11
+               ROW    340
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Fecha Nacimiento"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE DATEPICKER dFecnac
+               ROW    340
+               COL    160
+               WIDTH  120
+               HEIGHT 24
+               VALUE date()
+               FONTNAME 'Arial'
+               TOOLTIP ''
+        END DATEPICKER
+
+        DEFINE LABEL Label_12
+               ROW    370
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Cobra Salario"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbSalario
+               ROW    370
+               COL    160
+               WIDTH  200
+               HEIGHT 100
+               ITEMS {"SI", "NO"}
+               VALUE 2
+        END COMBOBOX
+
+        DEFINE LABEL Label_13
+               ROW    400
+               COL    20
+               WIDTH  120
+               HEIGHT 24
+               VALUE "Sexo"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbtSexo
+               ROW    400
+               COL    160
+               WIDTH  200
+               HEIGHT 100
+               ITEMS {""}
+               VALUE 9999
+               ITEMSOURCE ( cAliasTsexo + "->cDesTAB" )
+               VALUESOURCE ( cAliasTsexo + "->cCodTAB" )
+        END COMBOBOX
+
+    END PAGE
+
+    PAGE 'Estudios'
+
+        DEFINE LABEL Label_100
+               ROW    40
+               COL    20
+               WIDTH  80
+               HEIGHT 24
+               VALUE "Listado"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE COMBOBOX cmbListado
+               ROW    40
+               COL    160
+               WIDTH  200
+               HEIGHT 100
+               ITEMS {""}
+               VALUE 9999
+               ITEMSOURCE ( cAliasListado + "->cDesTAB" )
+               VALUESOURCE ( cAliasListado + "->cCodTAB" )
+        END COMBOBOX
+
+        DEFINE LABEL Label_101
+               ROW    70
+               COL    20
+               WIDTH  180
+               HEIGHT 24
+               VALUE "Ingreso A la Docencia"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE DATEPICKER dFecAnt
+               ROW    70
+               COL    160
+               WIDTH  120
+               HEIGHT 24
+               VALUE date()
+               FONTNAME 'Arial'
+               TOOLTIP ''
+        END DATEPICKER
+
+        DEFINE LABEL Label_103
+               ROW    100
+               COL    20
+               WIDTH  80
+               HEIGHT 24
+               VALUE "Titulos"
+               TRANSPARENT .T.
+        END LABEL
+
+        DEFINE EDITBOX EditTitulos
+               ROW    120
+               COL    10
+               WIDTH  502
+               HEIGHT 240
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END EDITBOX
+
+    END PAGE
+
+    PAGE 'Carga Horaria'
+        DEFINE BROWSE Browse_1
+               ROW    70
+               COL    10
+               WIDTH  657
+               HEIGHT 380
+               WIDTHS {60, 320, 80, 80, 80, 80 }
+               HEADERS {"Cupof", "Materia","Desde", "Hasta", "Sit. Rev.", "Estado"}
+               WORKAREA &cAliasMov
+               FIELDS {"cCupof","(cAliasCupof)->cMateria", "dDesde","dHasta","cSRevista( nSitRev )","if(lActivo, 'Activo', 'Ceso')"}
+               ONGOTFOCUS This.BackColor:=clrBack
+               ONLOSTFOCUS This.BackColor:=clrNormal
+               FONTBOLD .T.
+               DYNAMICBACKCOLOR {|| IF( ORDKEYNO() % 2 == 0, CLR_LGRAY, CLR_LGREEN ) }
+               JUSTIFY { BROWSE_JTFY_LEFT,BROWSE_JTFY_LEFT,BROWSE_JTFY_LEFT, BROWSE_JTFY_LEFT,BROWSE_JTFY_LEFT,BROWSE_JTFY_LEFT}
+        END BROWSE
+
+    END PAGE
+
+    PAGE 'Inasistencia'
+        DEFINE BROWSE Browse_2
+               ROW    70
+               COL    10
+               WIDTH  657
+               HEIGHT 380
+               WIDTHS {90, 90, 50, 45, 45 }
+               HEADERS {"Desde", "Hasta","Dias", "Art", "Inc"}
+               WORKAREA &cAliasAus
+               FIELDS {"dDesde","dHasta", "dHasta-dDesde","cArt","cInc" }
+               ONGOTFOCUS This.BackColor:=clrBack
+               ONLOSTFOCUS This.BackColor:=clrNormal
+               FONTBOLD .T.
+               DYNAMICBACKCOLOR {|| IF( ORDKEYNO() % 2 == 0, CLR_LGRAY, CLR_LGREEN ) }
+               JUSTIFY { _C, _C, _C, _C, _C }
+        END BROWSE
+
+    END PAGE
+
+    PAGE 'Observaciones'
+
+        DEFINE EDITBOX EditObs
+               ROW    40
+               COL    10
+               WIDTH  502
+               HEIGHT 240
+               ONGOTFOCUS This.BackColor:=CLR_LGREEN
+               ONLOSTFOCUS This.BackColor:=WHITE
+        END EDITBOX
+
+    END PAGE
+
+  END TAB
+
+     DEFINE BUTTON BtnOk
+            ROW    470
+            COL    320
+            WIDTH  100
+            HEIGHT 28
+            ACTION SaveDOC( nOp, cAliasDOC )
+            CAPTION "Actualizar"
+            TOOLTIP "Actualizar"
+     END BUTTON
+
+     DEFINE BUTTON BtnCancel
+            ROW    470
+            COL    430
+            WIDTH  100
+            HEIGHT 28
+            ACTION ThisWindow.Release
+            CAPTION "Cancelar"
+            TOOLTIP "Cancelar"
+     END BUTTON
+
+END WINDOW
+
+

@@ -1,0 +1,37 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 125 , -334 WIDTH 1330 HEIGHT 527 TITLE "Movimiento Docente" BACKCOLOR {176 , 183 , 198 } ;
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION Eval ( bNew ) TOOLTIP "Nuevo"
+            BUTTON Btn_2 PICTURE "DEL" ACTION Eval ( bDel ) TOOLTIP "Borrar"
+            BUTTON Btn_3 PICTURE "EDIT" ACTION Eval ( bEdit ) TOOLTIP "Editar"
+            BUTTON Btn_5 PICTURE "RPT" ACTION Eval ( bRpt ) TOOLTIP "Reporte" SEPARATOR
+            BUTTON Btn_6 PICTURE "REFRESH" ACTION Eval ( bActu ) TOOLTIP "Actualizar" SEPARATOR
+            BUTTON Btn_7 PICTURE "VIEW" ACTION Eval ( bView ) TOOLTIP iiF( lSelect, "Selecionar", "Consultar")
+            BUTTON Btn_9 PICTURE "B_EXCEL" ACTION Eval ( bView ) TOOLTIP "Exportar, Importar"
+            BUTTON Btn_0 PICTURE "EXIT" ACTION ThisWindow.Release TOOLTIP "Terminar" SEPARATOR
+     END TOOLBAR
+// x10
+     DEFINE BROWSE Browse_1
+            ROW    70
+            COL    10
+            WIDTH  1232
+            HEIGHT 399
+            WIDTHS {70, 300, 25, 25, 300, 100, 100, 100, 70 }
+            HEADERS {"Cupof", "Materia","A", "D", "Docente", "Sit. Rev.", "Desde", "Hasta", "Estado" }
+            WORKAREA &cAliasMov
+            FIELDS {"cCupof","(cAliasCupof)->cMateria", "alltrim((cAliasCupof)->cCurso)", "alltrim((cAliasCupof)->cDiv)", "(cAliasDOC1)->cApeNom", "cSitRev", "dDesde","dHasta", "iif(lActivo,'Activo','Ceso')"}
+            FONTSIZE 10
+            ONGOTFOCUS This.BackColor:=clrBack
+            ONLOSTFOCUS This.BackColor:=clrNormal
+            FONTBOLD .T.
+            ONDBLCLICK Eval( bView )
+            DYNAMICBACKCOLOR {|| IF( ORDKEYNO() % 2 == 0, CLR_LGRAY, CLR_LGREEN ) }
+            JUSTIFY { _C, _I, _C, _C, _I, _C, _C, _C, _C }
+     END BROWSE
+
+END WINDOW
+
+

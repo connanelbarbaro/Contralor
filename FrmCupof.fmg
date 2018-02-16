@@ -1,0 +1,99 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 169 , 336 WIDTH 605 HEIGHT 518 TITLE "Cupof" BACKCOLOR {176 , 183 , 198 } ;
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION Eval ( bNew ) TOOLTIP "Nuevo"
+            BUTTON Btn_2 PICTURE "DEL" ACTION Eval ( bDel ) TOOLTIP "Borrar"
+            BUTTON Btn_3 PICTURE "EDIT" ACTION Eval ( bEdit ) TOOLTIP "Editar"
+            BUTTON Btn_5 PICTURE "RPT" ACTION Eval ( bRpt ) TOOLTIP "Reporte" SEPARATOR
+            BUTTON Btn_6 PICTURE "REFRESH" ACTION Eval ( bActu ) TOOLTIP "Actualizar" SEPARATOR
+//            BUTTON Btn_7 PICTURE "VIEW" ACTION Eval ( bView ) TOOLTIP "iF( lSelect, "Selecionar", "Consultar" "
+            BUTTON Btn_9 PICTURE "B_EXCEL" ACTION Eval ( bView ) TOOLTIP "Exportar, Importar"
+            BUTTON Btn_0 PICTURE "EXIT" ACTION ThisWindow.Release TOOLTIP "Terminar" SEPARATOR
+     END TOOLBAR
+
+     DEFINE BROWSE Browse_1
+            ROW    70
+            COL    10
+            WIDTH  562
+            HEIGHT 391
+            WIDTHS {70, 380, 30, 30 }
+            HEADERS {"Cupof", "Materia", "C","D" }
+            WORKAREA &( cAliasCupof )
+            FIELDS {'cCupof', "cMateria", "ccurso", "cdiv" }
+            FONTSIZE 10
+            ONGOTFOCUS This.BackColor:=clrBack
+            ONLOSTFOCUS This.BackColor:=clrNormal
+            FONTBOLD .T.
+            ONDBLCLICK Eval( bView )
+            JUSTIFY { 2, 0 }
+     END BROWSE
+
+     DEFINE LABEL Label_1
+            ROW    40
+            COL    10
+            WIDTH  73
+            HEIGHT 21
+            VALUE "Curso/Div"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbCurso
+            ROW    40
+            COL    70
+            WIDTH  60
+            HEIGHT 100
+            ITEMS {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "  " }
+            ValueSource ( { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "  " } )
+            VALUE 11
+            ONCHANGE FiltroCupof( cAliasCupof ,1 )
+     END COMBOBOX
+
+     DEFINE COMBOBOX cmbDiv
+            ROW    40
+            COL    130
+            WIDTH  60
+            HEIGHT 100
+            ITEMS {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "  " }
+            ValueSource ( { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "  " } )
+            VALUE 11
+            ONCHANGE FiltroCupof( cAliasCupof, 2)
+     END COMBOBOX
+
+     DEFINE CHECKBOX lTodo
+            ROW    40
+            COL    210
+            WIDTH  68
+            HEIGHT 27
+            CAPTION 'Todo'
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE FiltroCupof( cAliasCupof, 0 )
+     END CHECKBOX
+
+     DEFINE LABEL Label_2
+            ROW    40
+            COL    310
+            WIDTH  59
+            HEIGHT 21
+            VALUE "Tipo"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbTipo
+            ROW    40
+            COL    370
+            WIDTH  200
+            HEIGHT 100
+            ITEMS {""}
+            value ( cAliasTipo )->cCodTab
+            ONCHANGE FiltroCupof( cAliasCupof, 3)
+            ITEMSOURCE ( cAliasTipo + "->cDesTAB" )
+            VALUESOURCE ( cAliasTipo + "->cCodTAB" )
+     END COMBOBOX
+
+END WINDOW
+
+

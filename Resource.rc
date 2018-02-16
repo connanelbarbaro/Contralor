@@ -1,0 +1,98 @@
+
+NEW       BITMAP          "/sys/Resource/bmp/16x16/B_NEW.BMP"
+DEL       BITMAP          "/sys/Resource/bmp/16x16/B_DEL.BMP"
+EDIT      BITMAP          "/sys/Resource/bmp/16x16/EDIT.BMP"
+VIEW      BITMAP          "/sys/Resource/bmp/16x16/B_VIEW.BMP"
+EXIT      BITMAP          "/sys/Resource/bmp/16x16/B_FIN.BMP"
+CFG       BITMAP          "/sys/Resource/bmp/16x16/TOOLS.BMP"
+BAK       BITMAP          "/sys/Resource/bmp/16x16/BACKUP.BMP"
+INDEX     BITMAP          "/sys/Resource/bmp/16x16/B_SORT.BMP"
+RPT       BITMAP          "/sys/Resource/bmp/16x16/B_PRT.BMP"
+SAVE      BITMAP          "/sys/Resource/bmp/16x16/B_SAVE.BMP"
+CANCEL    BITMAP          "/sys/Resource/bmp/16x16/B_DEL.BMP"
+REFRESH   BITMAP          "/sys/Resource/bmp/16x16/RECYCLE3.BMP"
+OPEN      BITMAP          "/sys/Resource/bmp/16x16/OPEN.BMP"
+CLOSE     BITMAP          "/sys/Resource/bmp/16x16/CLOSE.BMP"
+
+B_CLI     BITMAP          "/sys/Resource/bmp/16x16/B_CLI.BMP"
+B_PRO     BITMAP          "/sys/Resource/bmp/16x16/B_PRO.BMP"
+B_PRE     BITMAP          "/sys/Resource/bmp/16x16/B_PRE.BMP"
+B_FAC     BITMAP          "/sys/Resource/bmp/16x16/B_FAC.BMP"
+B_INS     BITMAP          "/sys/Resource/bmp/16x16/Row_Rows.bmp"
+B_CALC    BITMAP          "/sys/Resource/bmp/16x16/CALC.bmp"
+B_EXCEL   BITMAP          "/sys/Resource/bmp/16x16/EXCEL2.bmp"
+B_RPT     BITMAP          "/sys/Resource/bmp/16x16/PRINTER5.BMP"
+
+
+// ICONOS
+AAA       ICON            "/sys/Resource/ICON/DATABASE.ICO"
+I_HELP    ICON            "/sys/Resource/icon/help3.ico"
+I_CLI     ICON            "/sys/resource/icon/ICONOS VB/Windows/Icon0132.ico"
+I_TABLA   ICON            "/sys/Resource/ICON/NOTE16.ico"
+I_FAC     ICON            "/sys/resource/icon/ICONOS VB/Notas/WRITE1.ICO"
+I_ERROR   ICON            "/sys/resource/icon/ICONOS VB/Misc1/!01F.ICO"
+
+1 VERSIONINFO
+FILEVERSION 1,1,0,0
+PRODUCTVERSION 1,0,0,0
+FILEOS 0x4
+FILETYPE 0x1
+{
+     BLOCK "StringFileInfo"
+     {
+          BLOCK "040904b0"
+          {
+               VALUE "FileDescription", "Impresion de Facturas"
+               VALUE "FileVersion", "1.1.0.0"
+               VALUE "LegalTrademarks", "Harbour - Oohg"
+               VALUE "OriginalFilename", "Factura.exe"
+               VALUE "CompanyName", "HerculeSoft, S. A."
+               VALUE "ProductName", "Factura\000"
+               VALUE "ProductVersion", "1.0.0.0"
+               VALUE "Comments", "Creado por HerculeSoft, S. A."
+          }
+     }
+}
+
+1 24 "/sys/Resource/Oohg/WindowsXP.Manifest"
+MINIGUI_FINGER          CURSOR          "/sys/resource/Oohg/CUR/FINGER.CUR"
+
+ZZZ_AAAWINDOW           ICON            "/sys/resource/Oohg/ICO/WINDOW.ICO"
+ZZZ_LED_ON              ICON            "/sys/resource/Oohg/ICO/LED_ON.ICO"
+ZZZ_LED_OFF             ICON            "/sys/resource/Oohg/ICO/LED_OFF.ICO"
+
+
+// HBPRINT PRINT PREVIEW IMAGE BUTTONS
+
+zzz_printicon           ICON    "/sys/resource/Oohg/ICO/print.ico"
+hbprint_end             BITMAP  "/sys/resource/Oohg/BMP/hbprint_end.bmp"
+hbprint_next            BITMAP  "/sys/resource/Oohg/BMP/hbprint_next.bmp"
+hbprint_top             BITMAP  "/sys/resource/Oohg/BMP/hbprint_top.bmp"
+hbprint_back            BITMAP  "/sys/resource/Oohg/BMP/hbprint_back.bmp"
+hbprint_close           BITMAP  "/sys/resource/Oohg/BMP/hbprint_close.bmp"
+hbprint_print           BITMAP  "/sys/resource/Oohg/BMP/hbprint_print.bmp"
+hbprint_save            BITMAP  "/sys/resource/Oohg/BMP/hbprint_save.bmp"
+hbprint_zoomin          BITMAP  "/sys/resource/Oohg/BMP/hbprint_zoomin.bmp"
+hbprint_zoomout         BITMAP  "/sys/resource/Oohg/BMP/hbprint_zoomout.bmp"
+hbprint_option          BITMAP  "/sys/resource/Oohg/BMP/hbprint_option.bmp"
+
+
+
+// MINIPRINT PRINT PREVIEW IMAGE BUTTONS
+
+HP_END          BITMAP  "/sys/resource/Oohg/BMP/HP_END.bmp"
+HP_TOP          BITMAP  "/sys/resource/Oohg/BMP/HP_TOP.bmp"
+HP_NEXT         BITMAP  "/sys/resource/Oohg/BMP/HP_NEXT.bmp"
+HP_BACK         BITMAP  "/sys/resource/Oohg/BMP/HP_BACK.bmp"
+HP_PRINT        BITMAP  "/sys/resource/Oohg/BMP/HP_PRINT.bmp"
+HP_ZOOM         BITMAP  "/sys/resource/Oohg/BMP/HP_ZOOM.bmp"
+HP_GOPAGE       BITMAP  "/sys/resource/Oohg/BMP/HP_GOPAGE.bmp"
+HP_CLOSE        BITMAP  "/sys/resource/Oohg/BMP/HP_CLOSE.bmp"
+HP_SAVE         BITMAP  "/sys/resource/Oohg/BMP/HP_SAVE.bmp"
+HP_THUMBNAIL    BITMAP  "/sys/resource/Oohg/BMP/hp_thumbnail.bmp"
+HP_GLASS        CURSOR  "/sys/resource/Oohg/CUR/HP_GLASS.CUR"
+
+HP_EXCEL        BITMAP  "/sys/resource/bmp/16x16_2/file_extension_xls.png"
+HP_WORD         BITMAP  "/sys/resource/bmp/16x16_2/file_extension_doc.png"
+HP_PDF          BITMAP  "/sys/resource/bmp/16x16_2/file_extension_pdf.png"
+HP_EMAIL        BITMAP  "/sys/resource/bmp/16x16_2/email.png"

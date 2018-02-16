@@ -1,0 +1,97 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 50 , 188 WIDTH 840 HEIGHT 607 TITLE "Inasistencia Docente"
+
+     DEFINE LABEL Label_1
+            ROW    10
+            COL    10
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Fecha"
+     END LABEL
+
+     DEFINE DATEPICKER dFecha
+            ROW    10
+            COL    130
+            WIDTH  120
+            HEIGHT 24
+            VALUE date()
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE AusFiltro2( cAliasAus )
+     END DATEPICKER
+
+     DEFINE LABEL Label_2
+            ROW    40
+            COL    10
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Docentes"
+     END LABEL
+
+     DEFINE COMBOBOX cbxDOC
+            ROW    40
+            COL    140
+            WIDTH  250
+            HEIGHT 400
+            ITEMS {""}
+            VALUE "99999999"
+            ONENTER AusGrabar( cAliasAUS, 1 )
+            DISPLAYEDIT .T.
+            ITEMSOURCE ( cAliasDOc2 + "->cApeNom" )
+            VALUESOURCE ( cAliasDOC2 + "->cDNI" )
+     END COMBOBOX
+
+     DEFINE BROWSE Browse_1
+            ROW    80
+            COL    10
+            WIDTH  392
+            HEIGHT 432
+            WIDTHS {70, 290}
+            HEADERS {"Dni", "Docente" }
+            WORKAREA &( cAliasAus )
+            FIELDS {'cDNI', "( cAliasDOc3 )->cApeNom"}
+            FONTSIZE 10
+            ONGOTFOCUS This.BackColor:=clrBack
+            ONLOSTFOCUS This.BackColor:=clrNormal
+            FONTBOLD .T.
+            JUSTIFY { 2, 0 }
+     END BROWSE
+
+     DEFINE COMBOBOX cbxDia
+            ROW    40
+            COL    570
+            WIDTH  243
+            HEIGHT 406
+            ITEMS {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"}
+            VALUE 1
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE AusFiltro1(cAliasHor, cAliasDoc1, cAliasMOV )
+     END COMBOBOX
+
+     DEFINE LABEL Label_3
+            ROW    40
+            COL    440
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Dia"
+     END LABEL
+
+     DEFINE GRID Grid_1
+            ROW    80
+            COL    440
+            WIDTH  368
+            HEIGHT 431
+            ITEMS aDoc
+            WIDTHS {80,260}
+            HEADERS {'DNI','Docente'}
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONDBLCLICK AusGrabar( cAliasAUS, 2 )
+     END GRID
+
+END WINDOW
+
+

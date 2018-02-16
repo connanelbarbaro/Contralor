@@ -1,0 +1,203 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 150 , 330 WIDTH 510 HEIGHT 550
+
+     DEFINE LABEL Label_1
+            ROW    20
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Distrito"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE LABEL Label_2
+            ROW    50
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Tipo de Organizacion"
+     END LABEL
+
+     DEFINE LABEL Label_3
+            ROW    80
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Escuela N"
+     END LABEL
+
+     DEFINE LABEL Label_4
+            ROW    110
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Est. o Repart.:"
+     END LABEL
+
+     DEFINE LABEL Label_5
+            ROW    140
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Domicilio"
+     END LABEL
+
+     DEFINE LABEL Label_6
+            ROW    170
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Telefono"
+     END LABEL
+
+     DEFINE LABEL Label_7
+            ROW    200
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "E-mail"
+     END LABEL
+
+     DEFINE LABEL Label_8
+            ROW    230
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Categoria"
+     END LABEL
+
+     DEFINE LABEL Label_9
+            ROW    260
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Turno"
+     END LABEL
+
+     DEFINE LABEL Label_10
+            ROW    290
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Desfavorable"
+     END LABEL
+
+     DEFINE LABEL Label_11
+            ROW    320
+            COL    6
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Email"
+     END LABEL
+
+     DEFINE TEXTBOX Text_1
+            ROW    20
+            COL    160
+            WIDTH  250
+            HEIGHT 25
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_2
+            ROW    50
+            COL    160
+            WIDTH  250
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_3
+            ROW    80
+            COL    160
+            WIDTH  250
+            HEIGHT 24
+            RIGHTALIGN .T.
+            MAXLENGTH 15
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_4
+            ROW    110
+            COL    160
+            WIDTH  0
+            HEIGHT 24
+            RIGHTALIGN .T.
+            MAXLENGTH 15
+     END TEXTBOX
+/*
+     DEFINE TEXTBOX Text_5
+            ROW    140
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_6
+            ROW    170
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_7
+            ROW    200
+            COL    160
+            WIDTH  250
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_8
+            ROW    210
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_9
+            ROW    240
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_10
+            ROW    270
+            COL    160
+            WIDTH  120
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_11
+            ROW    300
+            COL    160
+            WIDTH  250
+            HEIGHT 24
+     END TEXTBOX
+
+     DEFINE TEXTBOX Text_12
+            ROW    330
+            COL    160
+            WIDTH  250
+            HEIGHT 24
+     END TEXTBOX
+*/
+     DEFINE BUTTON Button_1
+            ROW    370
+            COL    150
+            WIDTH  100
+            HEIGHT 28
+            ACTION GrabarCFG()
+            CAPTION "Aceptar"
+     END BUTTON
+
+     DEFINE BUTTON Button_2
+            ROW    370
+            COL    250
+            WIDTH  100
+            HEIGHT 28
+            ACTION ThisWindow.Release
+            CAPTION "Cancelar"
+     END BUTTON
+
+END WINDOW
+
+

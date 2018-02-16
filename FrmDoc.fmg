@@ -1,0 +1,35 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 147 , 322 WIDTH 409 HEIGHT 540 TITLE "Docentes" BACKCOLOR {176 , 183 , 198 } ;
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_1 PICTURE "NEW" ACTION Eval ( bNew )
+            BUTTON Btn_2 PICTURE "DEL" ACTION Eval ( bDel )
+            BUTTON Btn_3 PICTURE "EDIT" ACTION Eval ( bEdit )
+            BUTTON Btn_5 PICTURE "RPT" ACTION Eval ( bRpt )
+            BUTTON Btn_6 PICTURE "REFRESH" ACTION Eval ( bActu )
+            BUTTON Btn_7 PICTURE "VIEW" ACTION Eval ( bView )
+            BUTTON Btn_0 PICTURE "EXIT" ACTION ThisWindow.Release
+     END TOOLBAR
+
+     DEFINE BROWSE Browse_1
+            ROW    40
+            COL    10
+            WIDTH  372
+            HEIGHT 429
+            WIDTHS {80, 240 }
+            HEADERS {"DNI", "Docente" }
+            WORKAREA &( cAliasdoc )
+            FIELDS {'cDNI', "cApeNom" }
+            FONTSIZE 10
+            ONGOTFOCUS This.BackColor:=clrBack
+            ONLOSTFOCUS This.BackColor:=clrNormal
+            FONTBOLD .T.
+            ONDBLCLICK eVal( bView )
+            JUSTIFY { 2, 0 }
+     END BROWSE
+
+END WINDOW
+
+

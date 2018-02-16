@@ -1,0 +1,325 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 196 , 298 WIDTH 725 HEIGHT 581 TITLE "ACTUALIZAR Cupof"
+
+     DEFINE LABEL Label_1
+            ROW    40
+            COL    20
+            WIDTH  80
+            HEIGHT 24
+            VALUE "Cupof"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX TxtCupof
+            ROW    40
+            COL    160
+            WIDTH  100
+            HEIGHT 24
+            RIGHTALIGN .T.
+     END TEXTBOX
+
+     DEFINE LABEL Label_2
+            ROW    70
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Materia"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX txtMateria
+            ROW    70
+            COL    160
+            WIDTH  312
+            HEIGHT 26
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+     END TEXTBOX
+
+     DEFINE LABEL Label_3
+            ROW    100
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Abreviatura"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX txtSigla
+            ROW    100
+            COL    160
+            WIDTH  200
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+            MAXLENGTH 4
+     END TEXTBOX
+
+     DEFINE LABEL Label_4
+            ROW    130
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Tipo"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbTipo
+            ROW    130
+            COL    160
+            WIDTH  200
+            HEIGHT 100
+            ITEMS {""}
+            VALUE ( cAliasTipo + "->cCodTAB" )
+            ITEMSOURCE ( cAliasTipo + "->cDesTAB" )
+            VALUESOURCE ( cAliasTipo + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_5
+            ROW    160
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Carga Horaria"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX txtTiempo
+            ROW    160
+            COL    160
+            WIDTH  200
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+            MAXLENGTH 5
+            INPUTMASK "999.99"
+            NUMERIC  .T.
+     END TEXTBOX
+
+     DEFINE LABEL Label_6
+            ROW    190
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Funcion"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE TEXTBOX TxtFuncion
+            ROW    190
+            COL    160
+            WIDTH  100
+            HEIGHT 24
+            RIGHTALIGN .T.
+     END TEXTBOX
+
+     DEFINE LABEL Label_7
+            ROW    220
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Curso/Division"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbCurso
+            ROW    220
+            COL    160
+            WIDTH  40
+            HEIGHT 100
+            ITEMS {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "  " }
+            ValueSource ( { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "  " } )
+            VALUE 11
+     END COMBOBOX
+
+     DEFINE COMBOBOX cmbDivision
+            ROW    220
+            COL    210
+            WIDTH  40
+            HEIGHT 100
+            ITEMS {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "  " }
+            ValueSource ( { " 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10", "  " } )
+            VALUE 11
+     END COMBOBOX
+
+     DEFINE LABEL Label_10
+            ROW    250
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Turno"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbTurno
+            ROW    250
+            COL    160
+            WIDTH  200
+            HEIGHT 100
+            ITEMS {""}
+            VALUE ( cAliasTurno + "->cCodTAB" )
+            ITEMSOURCE ( cAliasTurno + "->cDesTAB" )
+            VALUESOURCE ( cAliasTurno + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE LABEL Label_8
+            ROW    280
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Dia"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE COMBOBOX cmbDia
+            ROW    280
+            COL    160
+            WIDTH  200
+            HEIGHT 100
+            ITEMS cDia()
+            VALUE 1
+     END COMBOBOX
+
+     DEFINE LABEL Label_9
+            ROW    310
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Horario"
+            TRANSPARENT .T.
+     END LABEL
+
+     DEFINE SPINNER HH1
+            ROW    310
+            COL    160
+            WIDTH  40
+            HEIGHT 24
+            RANGEMIN 1
+            RANGEMAX 23
+            VALUE 7
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE CUPactu( 1 )
+            WRAP .T.
+     END SPINNER
+
+     DEFINE SPINNER mm1
+            ROW    310
+            COL    200
+            WIDTH  40
+            HEIGHT 24
+            RANGEMIN 0
+            RANGEMAX 59
+            VALUE 30
+            FONTNAME 'Arial'
+            TOOLTIP ''
+            ONCHANGE CUPactu( 2 )
+            WRAP .T.
+     END SPINNER
+
+     DEFINE SPINNER HH2
+            ROW    310
+            COL    260
+            WIDTH  40
+            HEIGHT 24
+            RANGEMIN 1
+            RANGEMAX 23
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END SPINNER
+
+     DEFINE SPINNER mm2
+            ROW    310
+            COL    300
+            WIDTH  40
+            HEIGHT 24
+            RANGEMIN 0
+            RANGEMAX 59
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END SPINNER
+
+     DEFINE BROWSE Browse_1
+            ROW    350
+            COL    20
+            WIDTH  343
+            HEIGHT 146
+            WIDTHS {100, 100}
+            HEADERS {'Dia', "Horario"}
+            WORKAREA &( cAliasHCupof )
+            FIELDS {'cDia( cDia )', "cDesde + ' - ' + cHasta"}
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BROWSE
+
+     DEFINE BUTTON BtnOk
+            ROW    500
+            COL    150
+            WIDTH  100
+            HEIGHT 28
+            ACTION SaveCupof( nOp, cAliasCupof )
+            CAPTION "Actualizar"
+            TOOLTIP "Actualizar"
+     END BUTTON
+
+     DEFINE BUTTON BtnCancel
+            ROW    500
+            COL    260
+            WIDTH  100
+            HEIGHT 28
+            ACTION ThisWindow.Release
+            CAPTION "Cancelar"
+            TOOLTIP "Cancelar"
+     END BUTTON
+
+     DEFINE BUTTON Button_Agregar
+            ROW    350
+            COL    380
+            WIDTH  100
+            HEIGHT 28
+            ACTION EditHcupof( lGrabar,1, cAliasHCupof )
+            CAPTION "Agregar"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON
+
+     DEFINE BUTTON Button_Borrar
+            ROW    380
+            COL    380
+            WIDTH  100
+            HEIGHT 28
+            ACTION EditHcupof( lGrabar,2, cAliasHCupof )
+            CAPTION "Borrar"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON
+
+     DEFINE BROWSE Browse_2
+            ROW    110
+            COL    390
+            WIDTH  288
+            HEIGHT 238
+            WIDTHS {270, 50}
+            HEADERS {"Docente", "S.Rev"}
+            WORKAREA &( cAliasMOV )
+            FIELDS {"( cAliasDOc1 )->cApeNom", ""}
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BROWSE
+
+     DEFINE COMBOBOX cmbMod
+            ROW    220
+            COL    260
+            WIDTH  100
+            HEIGHT 100
+            FONTNAME 'Arial'
+            VALUE ( cAliasMOD + "->cCodTAB" )
+            ITEMSOURCE ( cAliasMOD + "->cDesTAB" )
+            VALUESOURCE ( cAliasMOD + "->cCodTAB" )
+     END COMBOBOX
+
+END WINDOW
+
+

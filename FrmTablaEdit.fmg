@@ -1,0 +1,64 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 223 , 320 WIDTH 550 HEIGHT 208 TITLE "ABM - Tablas" NOSIZE
+
+     DEFINE TOOLBAR Toolbar_1 CAPTION "Toolbar_1" BUTTONSIZE 20,20 FONT "Arial" SIZE 9
+            BUTTON Btn_Save PICTURE "SAVE" ACTION SaveTAB( nOp, cAliasTAB ) TOOLTIP "Actualizar" SEPARATOR
+            BUTTON Btn_Exit PICTURE "EXIT" ACTION ThisWindow.Release TOOLTIP "Terminar"
+     END TOOLBAR
+
+     DEFINE LABEL Label_1
+            ROW    50
+            COL    20
+            WIDTH  80
+            HEIGHT 24
+            VALUE "Codigo"
+            TRANSPARENT .T.
+     END LABEL  
+
+     DEFINE LABEL Label_2
+            ROW    80
+            COL    20
+            WIDTH  120
+            HEIGHT 24
+            VALUE "Descripcion"
+            TRANSPARENT .T.
+     END LABEL  
+
+     DEFINE TEXTBOX txtCod
+            ROW    50
+            COL    100
+            WIDTH  45
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+            RIGHTALIGN .T.
+            MAXLENGTH 5
+     END TEXTBOX 
+
+     DEFINE TEXTBOX txtInc
+            ROW    50
+            COL    150
+            WIDTH  45
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+            VISIBLE .F.
+            RIGHTALIGN .T.
+            MAXLENGTH 5
+     END TEXTBOX 
+
+     DEFINE TEXTBOX txtDesc
+            ROW    80
+            COL    100
+            WIDTH  200
+            HEIGHT 24
+            ONGOTFOCUS This.BackColor:=CLR_LGREEN
+            ONLOSTFOCUS This.BackColor:=WHITE
+            MAXLENGTH 30
+     END TEXTBOX 
+
+END WINDOW
+
+

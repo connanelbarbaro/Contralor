@@ -1,0 +1,136 @@
+*-- PROGRAM FILE -------------------------------------------------------
+*         Description : SISTEMA PARA MARCELO WEBER
+*           File Name : TABLA.prg
+*              Author : Carvalho Alejandro - HerculeSoft (c) 2007
+*   Date Time Created : 10/29/2009 - 08:02
+* Date Time updated :>: 01/31/2018 20:40
+*             Comment : MODULO ABM TABLAS
+*                        1 - Codigos Postales
+*                        2 - Formas de Pago
+*                        3 - Bancos
+*                        4 - Tipos de IVA
+*                        5 - Unidades de Medida
+*                        6 - Tarjetas de Credito
+*   History Update :>>:
+*   05/28/12 Version Estable
+*-----------------------------------------------------------------------
+#include "oohg.ch"
+#include "Factura.ch"
+/*
+01 - CODIGO POSTALES
+02 - LISTADO
+03 - MODULOS
+*/
+
+//-----------------------------------------------------------------------------
+Function Tablas( nPos )
+     Local cAliasTAB := "", cCodTAB := ""
+     Local bNew := {|| EditTAB( _NEW, cAliasTAB ) }
+     Local bDel := {|| DelTAB( cAliasTAB ) }
+     Local bEdit := {|| EditTAB( _EDIT, cAliasTAB ) }
+     Local bRpt := {|| RptTABLA( cAliasTAB ) }
+     Local bRefresh := {|| TabRefresh( cAliasTAB ) }
+     Local bExit := {|| ThisWindow.Release }
+     Local bView := {|| MsgStop( "Funcion Deshabilitada", "Aviso Del Sistema" ) }
+
+     default nPos := 1
+
+     cAliasTAB := AbrirDBF( "TABLA", "TABcp"  )
+
+     Load Window FrmTabla
+     Center Window FrmTabla
+     Refresh( cAliasTAB, "FrmTabla", "Browse_" + Str( nPos, 1 ) )
+     Activate Window FrmTabla
+     CerrarDBF( { cAliasTAB } )
+     Return( nil )
+
+//-----------------------------------------------------------------------------
+Function TabRefresh( cAliasTAB )
+     Local aTag := { "TABcp", "TABlist", "TABtipo", "TABecivil", "TABmodalidad"  }
+
+     ( cAliasTAB )->( dbsetorder( aTag[ FrmTabla.Tab_1.Value ] ) )
+     Refresh( cAliasTAB, "FrmTabla", "Browse_" + Str( FrmTabla.Tab_1.Value, 1 ) )
+     return( nil )
+
+//-----------------------------------------------------------------------------
+Function EditTab( nOp, cAliasTAB  )
+
+     Load Window FrmTablaEdit
+     if nOp = _NEW
+          FrmTablaEdit.txtcod.value = space( 4 )
+          FrmTablaEdit.txtdesc.value = space( 30 )
+     else
+          FrmTablaEdit.txtcod.value = ( cAliasTAB )->cCodTAB
+          FrmTablaEdit.txtdesc.value = ( cAliasTAB )->cDesTAB
+          FrmTablaEdit.txtCOD.Enabled = .F.
+     endif
+     Center Window FrmTablaEdit
+     Activate Window FrmTablaEdit
+     return( nil )
+
+//-----------------------------------------------------------------------------
+Function SaveTAB( nOp, cAliasTAB )
+
+     IF nOp = _NEW
+          ( cAliasTAB )->( dbAppend() )
+     ENDIF
+     ( cAliasTAB )->( RLock() )
+     ( cAliasTAB )->cClaTAB := ALLTRIM( STR( FrmTabla.Tab_1.Value ) )
+     ( cAliasTAB )->cCodTAB := FrmTablaEdit.txtcod.value
+     ( cAliasTAB )->cDesTAB := FrmTablaEdit.txtdesc.value
+     ( cAliasTAB )->( dbcommit() )
+     ( cAliasTAB )->( dbUnlock() )
+     FrmTablaEdit.Release()
+     TabRefresh( cAliasTAB )
+     RETURN NIL
+
+//-----------------------------------------------------------------------------
+Function DelTAB( cAliasTAB )
+// 1 Yes
+// 2 NO
+// 0 CANCEL
+     if MsgYesNoCancel( "Desea Borrar Este Registro ?", "Aviso Del Sistema" ) = 1
+          ( cAliasTAB )->( RLOCK() )
+          ( cAliasTAB )->( DBDELETE() )
+          ( cAliasTAB )->( dbcommit() )
+          ( cAliasTAB )->( dbUnlock() )
+          TabRefresh( cAliasTAB )
+          DO EVENTS
+     endif
+     RETURN NIL
+
+//-----------------------------------------------------------------------------
+Function RptTABLA( cAliasTAB )
+
+     Local nLin := 999
+     Local oPrint
+     Local aPos := { 1, 8 }
+     Local aTag := { "Codigos Postales", "Listados", "Tipo", "Estado Civil" }
+     Local cTit := "Listado de " + aTag[ FrmTabla.Tab_1.Value ]
+     Local aHead := { { "", "Codigo" }, { "", "Descripcion" } }
+     Local cAliasCFG, cEmpresa
+     Local lLandscape := .F. // impresion horizontal llanscape=.F. impresion Vertical
+     Local nDatos := 0, nPag := 0, nTotPAG
+
+     cAliasCFG := AbrirDBF( "CFG" )
+     cEmpresa := ( cAliasCFG )->cRsCFG
+     CerrarDBF( { cAliasCFG } )
+     ( cAliasTAB )->( dbeval( { || nDatos+= 1 } ) )
+
+
+     if IniPrint( @oPrint, lLandscape  )
+          ( cAliasTAB )->( dbgotop() )
+          do while ! ( cAliasTAB )->( eof() )
+               HeadRpt( oPrint, @nLin, cTit, aHead, aPos, cEmpresa, lLandscape, nDatos, @nPag )
+               oPrint:printdata( nLin, aPos[ 1 ], ( cAliasTAB )->cCodTAB,, 12 )
+               oPrint:printdata( nLin, aPos[ 2 ], ( cAliasTAB )->cDesTAB,, 12 )
+               ( cAliasTAB )->( DbSkip() )
+          enddo
+          FooterRpt( oPrint, lLandscape, nDatos, @nPag )
+          oPrint:enddoc()
+          oPrint:RELEASE()
+     endif
+     return nil
+
+
+

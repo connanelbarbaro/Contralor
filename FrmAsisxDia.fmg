@@ -1,0 +1,67 @@
+*HMGS-MINIGUI-IDE Two-Way Form Designer Generated Code
+*OPEN SOURCE PROJECT 2005-2012 Walter Formigoni http://sourceforge.net/projects/hmgs-minigui/
+
+DEFINE WINDOW TEMPLATE AT 188 , 299 WIDTH 902 HEIGHT 518
+
+     DEFINE COMBOBOX cmbDia
+            ROW    30
+            COL    20
+            WIDTH  192
+            HEIGHT 100
+            ITEMS cDia()
+            VALUE 1
+     END COMBOBOX
+
+     DEFINE LABEL Label_1
+            ROW    70
+            COL    20
+            WIDTH  87
+            HEIGHT 25
+            VALUE "Tipo"
+     END LABEL
+
+     DEFINE COMBOBOX cmbTipo1
+            ROW    70
+            COL    110
+            WIDTH  100
+            HEIGHT 100
+            ITEMS {""}
+            ITEMSOURCE ( cAliasTip1 + "->cDesTAB" )
+            VALUESOURCE ( cAliasTip1 + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE COMBOBOX cmbTipo2
+            ROW    100
+            COL    110
+            WIDTH  100
+            HEIGHT 100
+            ITEMS {""}
+            ITEMSOURCE ( cAliasTip2 + "->cDesTAB" )
+            VALUESOURCE ( cAliasTip2 + "->cCodTAB" )
+     END COMBOBOX
+
+     DEFINE GRID Grid_1
+            ROW    40
+            COL    300
+            WIDTH  410
+            HEIGHT 421
+            ITEMS aLIstado
+            WIDTHS {50, 300,50}
+            HEADERS {"T",'Docente','Cargo', }
+            FONTNAME 'Arial'
+     END GRID
+
+     DEFINE BUTTON Button_1
+            ROW    150
+            COL    20
+            WIDTH  189
+            HEIGHT 34
+            Action DocxDia( cAliasHcupof, cAliasTip1, cAliasTip2, cAliasDoc, cAliasCupof, cAliasMOV )
+            CAPTION "Generar"
+            FONTNAME 'Arial'
+            TOOLTIP ''
+     END BUTTON
+
+END WINDOW
+
+
